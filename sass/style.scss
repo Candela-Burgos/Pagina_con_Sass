@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+// VARIABLES
+
+$color--white: #fff;
+$color--black: #2c2c2c;
+
+// MIXIN
+
+@mixin d-flex ($direction: row, $aligncontent: center, $alignitems: center) {
+    display: flex;
+    justify-content: $aligncontent;
+    flex-direction: $direction;
+    align-items: $alignitems;
+}
+
+// ESTILOS
+
+header {
+    height: 700px;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    @include d-flex($direction: column, $aligncontent: space-between, $alignitems: center);
+    width: 100%;
+    // height: 100%;
+}
+
+.container-logo {
+    width: 100%;
+    @include d-flex($direction: row, $aligncontent: center, $alignitems: space-evenly);
+    
+    .logo {
+        padding: 1em;
+        @include d-flex($direction: row, $aligncontent: space-between, $alignitems: space-evenly);
+        border-bottom: .2px solid $color--white;
+        width: 60%;
+    }
+
+    .nav-bar {
+        margin-top: 20px;
+    }
+
+    .nav-bar--links {
+        padding: 5px;
+        margin: .5em 1em;
+        font-size: 20px;
+        color: $color--white;
+        text-decoration: none;
+        border-bottom: transparent 1px solid;
+    }
+
+    .nav-bar--links:hover{
+        border-bottom: 1px solid $color--white;
+    }
+}
+
+.container-text {
+    @include d-flex($direction: column, $aligncontent: center, $alignitems: center);
+    width: 100%;
+
+    .small-container {
+        @include d-flex($direction: column, $aligncontent: center, $alignitems: center);
+        width: 100%;
+        padding-top: 12em;
+        text-align: center;
+    }
+
+    h2 {
+        color: $color--white;
+        font-size: 2rem;
+        margin-bottom: 1em;
+        font-weight: lighter;
+    }
+
+    p {
+        color: $color--white;
+        font-size: 1.5rem;
+        margin-bottom: 2em;
+        font-weight: lighter;
+    }
+
+    .botones{
+        a {
+            color: $color--white;
+            border: 1px solid $color--white;
+            border-radius: .2em;
+            text-decoration: none;
+            padding: .7em 3em;
+            margin: 2em;
+        }
+        a:hover {
+            color: $color--black;
+            background-color: $color--white;
+        }
+    }
+}
+
+.container-section {
+    @include d-flex($direction: column, $aligncontent: center, $alignitems: center);
+    width: 100%;
+
+    .card-container {
+        @include d-flex($direction: row, $aligncontent: center, $alignitems: center);
+        width: 70%;
+    }
+}
